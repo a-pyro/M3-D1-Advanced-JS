@@ -57,7 +57,11 @@ Given a word and a list of possible anagrams, select the correct sublist.
 
 const anagramAdayKeepsTheDocAway = (word, possibleAnagrams) =>
   possibleAnagrams.reduce((acc, cv) => {
-    if (cv.toLowerCase().split('').sort().join('') === word) acc.push(cv);
+    if (
+      cv.toLowerCase().split('').sort().join('') ===
+      word.toLowerCase().split('').sort().join('')
+    )
+      acc.push(cv);
     return acc;
   }, []);
 
@@ -67,6 +71,8 @@ console.log(
     'google',
     'inlets',
     'banana',
+    'lsiten',
+    'enlist',
   ])
 );
 
