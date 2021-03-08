@@ -88,6 +88,10 @@ and punctuation in determining if the string is a palindrome.
     palindrome("abba") === true
     palindrome("abcdefg") === false
  */
+const palindromes = (string) => string.split('').reverse().join('') === string;
+console.log(palindromes('abba'));
+console.log(palindromes('abcdefg'));
+console.log(palindromes('osso'));
 
 /* 5) REVERSE INT
 
