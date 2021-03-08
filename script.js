@@ -15,7 +15,7 @@ const maxChar = (string) =>
     freq: string.split('').filter((el) => el === char).length,
   }));
 
-console.log(maxChar('ciaooooo'));
+// console.log(maxChar('ciaooooo'));
 /* 2) ANAGRAMS
 
 Check to see if two provided strings are anagrams of each other.
@@ -39,11 +39,11 @@ const anagrams = (str1, str2) =>
     .map((char) => char.toLowerCase())
     .join('');
 
-console.log(anagrams('rail saefty', 'faiyr tales'));
-console.log(anagrams('RAIL! SAFETY!', 'fairy tales'));
-console.log(anagrams('Hi there', 'Bye there'));
-console.log(anagrams('bye4 there', 'Bye the4re'));
-console.log(anagrams('Hi there', 'Bye there'));
+// console.log(anagrams('rail saefty', 'faiyr tales'));
+// console.log(anagrams('RAIL! SAFETY!', 'fairy tales'));
+// console.log(anagrams('Hi there', 'Bye there'));
+// console.log(anagrams('bye4 there', 'Bye the4re'));
+// console.log(anagrams('Hi there', 'Bye there'));
 
 /* 3) ANAGRAMS 2
 
@@ -65,16 +65,16 @@ const anagramAdayKeepsTheDocAway = (word, possibleAnagrams) =>
     return acc;
   }, []);
 
-console.log(
-  anagramAdayKeepsTheDocAway('listen', [
-    'enlists',
-    'google',
-    'inlets',
-    'banana',
-    'lsiten',
-    'enlist',
-  ])
-);
+// console.log(
+//   anagramAdayKeepsTheDocAway('listen', [
+//     'enlists',
+//     'google',
+//     'inlets',
+//     'banana',
+//     'lsiten',
+//     'enlist',
+//   ])
+// );
 
 /* 4) PALINDROME
 
@@ -89,9 +89,9 @@ and punctuation in determining if the string is a palindrome.
     palindrome("abcdefg") === false
  */
 const palindromes = (string) => string.split('').reverse().join('') === string;
-console.log(palindromes('abba'));
-console.log(palindromes('abcdefg'));
-console.log(palindromes('osso'));
+// console.log(palindromes('abba'));
+// console.log(palindromes('abcdefg'));
+// console.log(palindromes('osso'));
 
 /* 5) REVERSE INT
 
@@ -118,11 +118,11 @@ const reverseInt = (num) => {
   return parseInt(result);
 };
 
-console.log(reverseInt(15));
-console.log(reverseInt(981));
-console.log(reverseInt(500));
-console.log(reverseInt(-15));
-console.log(reverseInt(-90));
+// console.log(reverseInt(15));
+// console.log(reverseInt(981));
+// console.log(reverseInt(500));
+// console.log(reverseInt(-15));
+// console.log(reverseInt(-90));
 /* 6) STEPS
 
 Write a function that accepts a positive number N.
@@ -144,11 +144,17 @@ step has spaces on the right hand side!
         '##  '
         '### '
         '####' */
-// ! da fare
-const steps = (n) =>
-  [...Array(4)].forEach((el, idx) => console.log('#'.repeat(idx + 1)));
 
-console.log(steps);
+/* const steps = (n) =>
+  [...Array(n)]
+    .map((_, idx) => idx + 1)
+    .forEach((el) => console.log('#'.repeat(el), ' '.repeat(n - el), '\n')); */
+const steps = (n) =>
+  [...Array(n)]
+    .map((_, idx) => idx + 1)
+    .forEach((el) => console.log('#'.repeat(el) + ' '.repeat(n - el)));
+
+// console.log(steps(4));
 /* 7) REVERSE STRING
 
 Given a string, return a new string with the reversed
@@ -169,9 +175,9 @@ const stringReverser = (string) => {
   return newString;
 };
 
-console.log(stringReverser('ciao'));
-console.log(stringReverser('ardi'));
-console.log(stringReverser('idra'));
+// console.log(stringReverser('ciao'));
+// console.log(stringReverser('ardi'));
+// console.log(stringReverser('idra'));
 /* 8) CHUNK
 
 Given an array and chunk size, divide the array into many subarrays
@@ -195,11 +201,11 @@ const chunck = (array, chuckSize) => {
   return result;
 };
 
-console.log(chunck([1, 2, 3, 4], 2));
-console.log(chunck([1, 2, 3, 4, 5], 2));
-console.log(chunck([1, 2, 3, 4, 5, 6, 7, 8], 3));
-console.log(chunck([1, 2, 3, 4, 5], 4));
-console.log(chunck([1, 2, 3, 4, 5], 10));
+// console.log(chunck([1, 2, 3, 4], 2));
+// console.log(chunck([1, 2, 3, 4, 5], 2));
+// console.log(chunck([1, 2, 3, 4, 5, 6, 7, 8], 3));
+// console.log(chunck([1, 2, 3, 4, 5], 4));
+// console.log(chunck([1, 2, 3, 4, 5], 10));
 
 /* 9) PYRAMID
 
@@ -220,15 +226,24 @@ pyramid has spaces on both the left and right hand sides
         ' ### '
         '#####' */
 
-const pyramid = (n) => {
-  const hash = '#';
-  const space = '';
-  const hashGrowthRate = i + 2;
-  const totalHashLastRow = n * 2 - 1;
-  const spaceGrowthRate = totalHashLastRow - i;
+//find the index growth rate to know how many # repeat each line
+//find the total amount of # in the last line in order to calculate the amount of spaces
+const pyramid = (n) =>
+  [...Array(n)]
+    .map((_, idx) => (idx === 0 ? idx + 1 : idx + idx + 1))
+    .forEach((num) =>
+      console.log(
+        `${' '.repeat((n * 2 - 1 - num) / 2)}${'#'.repeat(num)}${' '.repeat(
+          (n * 2 - 1 - num) / 2
+        )}`
+      )
+    );
 
-  for (let i = 1; i <= n; i++) {}
-};
+// console.log(pyramid(1));
+// console.log(pyramid(2));
+// console.log(pyramid(3));
+// console.log(pyramid(4));
+// console.log(pyramid(6));
 
 /* 10) SPYRAL MATRIX
 
@@ -251,3 +266,17 @@ and returns a NxN spiral matrix.
         [10,  9,  8, 7]]
 
 */
+
+const spyralMatrix = (n) => {
+  let matrix = [];
+  for (let i = 0; i < n; i++) {
+    const subArr = [];
+    for (let j = 1; j <= n; j++) {
+      subArr.push(j);
+    }
+    matrix.push(subArr);
+  }
+  console.log(matrix);
+};
+
+spyralMatrix(4);
