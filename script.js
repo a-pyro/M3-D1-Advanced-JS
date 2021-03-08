@@ -187,14 +187,10 @@ where each subarray is of length size
 */
 const chunck = (array, chuckSize) => {
   let result = [];
-  const i = chuckSize;
-
   do {
-    result.push([array.slice(0, chuckSize)]);
+    result.push(array.slice(0, chuckSize));
     array.splice(0, chuckSize);
-    chuckSize--;
-    break;
-  } while (chuckSize > 0);
+  } while (array.length > 0);
 
   return result;
 };
@@ -223,6 +219,16 @@ pyramid has spaces on both the left and right hand sides
         '  #  '
         ' ### '
         '#####' */
+
+const pyramid = (n) => {
+  const hash = '#';
+  const space = '';
+  const hashGrowthRate = i + 2;
+  const totalHashLastRow = n * 2 - 1;
+  const spaceGrowthRate = totalHashLastRow - i;
+
+  for (let i = 1; i <= n; i++) {}
+};
 
 /* 10) SPYRAL MATRIX
 
