@@ -9,7 +9,13 @@ commonly used in the string.
     maxChar("abcccccccd") === "c"
     maxChar("apple 1231111") === "1"
 */
+const maxChar = (string) =>
+  [...new Set(string.split(''))].map((char) => ({
+    char,
+    freq: string.split('').filter((el) => el === char).length,
+  }));
 
+console.log(maxChar('ciaooooo'));
 /* 2) ANAGRAMS
 
 Check to see if two provided strings are anagrams of each other.
