@@ -145,6 +145,10 @@ step has spaces on the right hand side!
         '### '
         '####' */
 
+const steps = (n) =>
+  [...Array(4)].forEach((el, idx) => console.log('#'.repeat(idx + 1)));
+
+console.log(steps);
 /* 7) REVERSE STRING
 
 Given a string, return a new string with the reversed
@@ -156,7 +160,18 @@ order of characters
     reverse('hello') === 'olleh'
     reverse('Greetings!') === '!sgniteerG'
  */
+const stringReverser = (string) => {
+  let newString = '';
+  for (let i = string.length - 1; i >= 0; i--) {
+    const char = string[i];
+    newString += char;
+  }
+  return newString;
+};
 
+console.log(stringReverser('ciao'));
+console.log(stringReverser('ardi'));
+console.log(stringReverser('idra'));
 /* 8) CHUNK
 
 Given an array and chunk size, divide the array into many subarrays
