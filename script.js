@@ -107,6 +107,22 @@ ordering of numbers.
     reverseInt(-90) === -9
  */
 
+const reverseInt = (num) => {
+  const list = num.toString().split('').reverse().join('');
+  let result = '';
+  if (list[list.length - 1] === '-') {
+    result += list[list.length - 1] + list.slice(0, -1);
+  } else {
+    return parseInt(list);
+  }
+  return parseInt(result);
+};
+
+console.log(reverseInt(15));
+console.log(reverseInt(981));
+console.log(reverseInt(500));
+console.log(reverseInt(-15));
+console.log(reverseInt(-90));
 /* 6) STEPS
 
 Write a function that accepts a positive number N.
