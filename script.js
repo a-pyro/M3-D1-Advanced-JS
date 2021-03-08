@@ -49,10 +49,26 @@ console.log(anagrams('Hi there', 'Bye there'));
 
 Given a word and a list of possible anagrams, select the correct sublist.
 
+
 --- Examples 
 
     "listen" and a list of candidates like "enlists" "google" "inlets" "banana" the program should return a list containing "inlets".
 */
+
+const anagramAdayKeepsTheDocAway = (word, possibleAnagrams) =>
+  possibleAnagrams.reduce((acc, cv) => {
+    if (cv.toLowerCase().split('').sort().join('') === word) acc.push(cv);
+    return acc;
+  }, []);
+
+console.log(
+  anagramAdayKeepsTheDocAway('listen', [
+    'enlists',
+    'google',
+    'inlets',
+    'banana',
+  ])
+);
 
 /* 4) PALINDROME
 
