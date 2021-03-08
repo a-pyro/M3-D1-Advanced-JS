@@ -144,7 +144,7 @@ step has spaces on the right hand side!
         '##  '
         '### '
         '####' */
-
+// ! da fare
 const steps = (n) =>
   [...Array(4)].forEach((el, idx) => console.log('#'.repeat(idx + 1)));
 
@@ -185,6 +185,25 @@ where each subarray is of length size
     chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
     chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 */
+const chunck = (array, chuckSize) => {
+  let result = [];
+  const i = chuckSize;
+
+  do {
+    result.push([array.slice(0, chuckSize)]);
+    array.splice(0, chuckSize);
+    chuckSize--;
+    break;
+  } while (chuckSize > 0);
+
+  return result;
+};
+
+console.log(chunck([1, 2, 3, 4], 2));
+console.log(chunck([1, 2, 3, 4, 5], 2));
+console.log(chunck([1, 2, 3, 4, 5, 6, 7, 8], 3));
+console.log(chunck([1, 2, 3, 4, 5], 4));
+console.log(chunck([1, 2, 3, 4, 5], 10));
 
 /* 9) PYRAMID
 
