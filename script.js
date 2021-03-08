@@ -29,6 +29,22 @@ or punctuation.  Consider capital letters to be the same as lower case
   anagrams('Hi there', 'Bye there') --> False
 */
 
+const anagrams = (str1, str2) =>
+  [...str1.replace(/\W/gi, '')]
+    .sort()
+    .map((char) => char.toLowerCase())
+    .join('') ===
+  [...str2.replace(/\W/gi, '')]
+    .sort()
+    .map((char) => char.toLowerCase())
+    .join('');
+
+console.log(anagrams('rail saefty', 'faiyr tales'));
+console.log(anagrams('RAIL! SAFETY!', 'fairy tales'));
+console.log(anagrams('Hi there', 'Bye there'));
+console.log(anagrams('bye4 there', 'Bye the4re'));
+console.log(anagrams('Hi there', 'Bye there'));
+
 /* 3) ANAGRAMS 2
 
 Given a word and a list of possible anagrams, select the correct sublist.
